@@ -1,1 +1,1 @@
-# COR_Hackathon_2023
+# City of Refuge Hackathon
