@@ -5,13 +5,17 @@ const app = express();
 require('dotenv').config({ path : '../.env'})
 const {Sequelize} = require('sequelize')
 const sequelize = new Sequelize(process.env.URL)
-const {About_us} = require('./models')
-
-
+const {About_us, Users} = require('./models')
 app.get('/heartbeat',(req,res) => {
     console.log('Heartbeat')
     res.send('heartbeat')
 })
+
+app.get('/users', async(req,res) => {
+    const usersData = await Users.findAll();
+    console.log('Users');
+    res.send(usersData)
+}) 
 app.get('/aboutus', async (req, res) => {
     try {
       const categories = await About_us.findAll();
