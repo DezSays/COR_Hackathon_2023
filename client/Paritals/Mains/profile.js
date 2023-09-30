@@ -7,7 +7,7 @@ app.use(express.json());
 
 //This is the bare bones the fetch function
 app.get ('/api/users', async (req, res) => {
-    const {Firstname, Lastname};
+    // const {Firstname, Lastname};
     try {
     
         const user = await User.findOne({ where: { userid }});
