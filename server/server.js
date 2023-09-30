@@ -1,5 +1,6 @@
 const express = require('express')
 const app = express()
+require('dotenv').config({ path : '../.env'})
 
 app.get('/heartbeat',(req,res) => {
     console.log('Heartbeat')
