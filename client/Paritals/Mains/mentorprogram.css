@@ -8,5 +8,25 @@
     display: flex;
 }
 #join-options>div{
-
+    border: 1px solid gray;
+    border-radius: 15px;
+    padding: 20px;
+    margin: 10px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.join-opt{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+.join-opt>a{
+    text-decoration: none;
+    color: white;
+    background-color: rgb(34, 78, 255);
+    padding:5px;
+    border-radius: 6px;
 }
