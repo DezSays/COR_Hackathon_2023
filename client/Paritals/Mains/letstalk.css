@@ -11,12 +11,32 @@ background-attachment: fixed;
 
 }
 
+@media only screen and (max-width: 600px) {
+
+    .Q{
+        margin-left: 20px;
+        
+        }
+    
+        .A{
+            margin-right: 20px;
+        
+        }
+
+        button .button{
+
+            width: 300px;
+        }
+    
+}
+
 .Q{
 margin: 0%;
 color:#000000;
 font-size: 50px;
 display: flex;
-margin-left: 50px;
+justify-content: center;
+
 
 }
 .and{
@@ -31,8 +51,8 @@ margin-left: 50px;
     color:#000000;
     font-size: 50px;
     display: flex;
-    justify-content: right;
-    margin-right: 50px;
+    justify-content: center;
+    
 
 }
 
@@ -48,6 +68,7 @@ width: 100%;
 
 .Q1{
 padding-bottom: 12%;
+padding-top: 25px;
 display: flex;
 justify-content:center
 
@@ -91,3 +112,12 @@ White - #FCFCFC */
 display: flex;
 margin-left: 12%;
 }
+
+
+
+
+
+
+
+
+
