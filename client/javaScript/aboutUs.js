@@ -1,3 +1,5 @@
+const cardBody = document.getElementById('card-body')
+
 const aboutUsData = {
     "aboutus": [
         {
@@ -23,12 +25,38 @@ const aboutUsData = {
     ]
 };
 
-const mappedData = aboutUsData.aboutus.map((personnel, index) => {
+const functionAbout = () => {
+    aboutUsData.aboutus.map((personnel, index) => {
     let source = personnel.image;
     let title = personnel.title;
     let name = personnel.name;
+    
+    let titlediv = document.createElement('div');
+    let img = document.createElement('img');
+    let namediv = document.createElement('div');
+    let cardparent = document.createElement('div')
 
-    return { source, title, name };
+    titlediv.innerHTML = title;
+    namediv.innerHTML = name;
+    img.src = source;
+    cardparent.appendChild(img)
+    cardparent.appendChild(namediv)
+    cardparent.appendChild(titlediv)
+    cardBody.append(cardparent);
+
 });
+}
 
-console.log(mappedData);
+functionAbout()
+
+
+// const card = document.querySelector('.card');
+// const profilePicture = card.querySelector('.card-img-top');
+// const titleElement = card.querySelector('.card-title');
+// const nameElement = card.querySelector('.card-text');
+
+// aboutUsData.aboutus.forEach(personnel => {
+//     profilePicture.src = personnel.image;
+//     titleElement.innerText = personnel.title;
+//     nameElement.innerText = personnel.name;
+// });
