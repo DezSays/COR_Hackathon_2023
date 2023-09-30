@@ -1,0 +1,12 @@
+#main{
+    padding-top: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#join-options{
+    display: flex;
+}
+#join-options>div{
+
+}
