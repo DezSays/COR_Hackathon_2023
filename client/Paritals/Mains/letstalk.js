@@ -1,18 +1,15 @@
 const questionForm = document.getElementById("questionForm")
 const questionInput = document.getElementById("questionInput")
 
-// const questionSubmitBtn = document.getElementById("questionSubmit")
-// questionSubmitBtn.addEventListener('click', )
-
 const handleQuestionSubmit = (x) => {
     x.preventDefault()
     const userQuestion = questionInput.value
 
     console.log("question:", userQuestion)
-    const questionSection = document.getElementById("askedQuestions") //Here we get the div that contains the questions
+    const questionSection = document.getElementById("Q1") //Here we get the div that contains the questions
     
     const questionBlock = document.createElement('div')//here we create a div to contain each individual question
-    
+
     const question = document.createElement('p') //the create a paragraph element to house the question
     question.classList.add("question") //
     question.innerText = userQuestion //here we set the inner text of the paragraph element to the question
@@ -34,27 +31,28 @@ const handleQuestionSubmit = (x) => {
     questionBlock.appendChild(dropdown)
     
     questionSection.appendChild(questionBlock)
+    // console.log(questionBlock)
 
 }
 
 questionForm.addEventListener('submit', handleQuestionSubmit)
 
-const questionReply = document.getElementsByClassName("questionReply")
+// const questionReply = document.getElementsByClassName("questionReply")
 
-const handleReply = () => {
-    const reply = questionReply.value
+// const handleReply = () => {
+//     const reply = questionReply.value
     
-    const dropdown = document.getElementById("dropdown")
+//     const dropdown = document.getElementById("dropdown")
     
-    const userReply = document.createElement("p")
-    userReply.innerText = reply
+//     const userReply = document.createElement("p")
+//     userReply.innerText = reply
 
-    dropdown.appendChild(userReply)
-}
+//     dropdown.appendChild(userReply)
+// }
 
-const replyBtn = document.getElementById('replyButton')
+// const replyBtn = document.getElementById('replyButton')
 
-replyBtn.addEventListener('onClick', handleReply)
+// replyBtn.addEventListener('onClick', handleReply)
 // questionForm.addEventListener('submit', (event) => {
 //     event.preventDefault()
 //     handleQuestionSubmit()
