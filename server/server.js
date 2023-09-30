@@ -1,5 +1,6 @@
 const express = require('express')
-const app = express()
+const app = express();
+const settings = require('./settings')
 require('dotenv').config({ path : '../.env'})
 
 app.get('/heartbeat',(req,res) => {
@@ -10,6 +11,7 @@ app.get('/heartbeat',(req,res) => {
 })
 
 
+console.log(settings);
 
 app.listen(3000, () => {
     console.log('Server is running on port 3000')

@@ -1,21 +1,23 @@
-const { sequelize } = require('./index');
-
-
-const tableObj = {
-    content: {
-        type: DataTypes.String,
-        allowNull: true
+'use strict';
+const {
+  Model
+} = require('sequelize');
+module.exports = (sequelize, DataTypes) => {
+  class lets_talk extends Model {
+    /**
+     * Helper method for defining associations.
+     * This method is not a part of Sequelize lifecycle.
+     * The `models/index` file will call this method automatically.
+     */
+    static associate(models) {
+      // define association here
     }
+  }
+  lets_talk.init({
+    content: DataTypes.STRING
+  }, {
+    sequelize,
+    modelName: 'lets_talk',
+  });
+  return lets_talk;
 };
-
-const lets_talk = sequelize.define('lets_talk', tableObj);
-
-sequelize.sync({force: true});
-
-lets_talk.create({
-    content: "lets talk test content"
-}).then((lets_talk) => {
-    console.log(`lets talk id: ${lets_talk.id}`)
-}).catch((error) => {
-    console.log(`An error occured, could not create lets_talk table`)
-})
