@@ -1,2 +1,6 @@
 .env
 /node_modules
+/envs/dev.env
+/envs/test.env
+/envs/prod.env
+/.DS_Store
