@@ -4,28 +4,53 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./profile.css">
     <title>Document</title>
 </head>
 <body>
-    <h1 id="title">About You</h1>
-    <div>
-        <div id="name-box">
-            <p>Name</p>
-            <input type="text">
-        </div>
-        <div id="email-box">
+    <div id="profile-info">
+        <h1 id="title">About You</h1>
+        <div id="profile-data">
+
+            <div class="option-box" id="name-box">
+                <p>Name</p>
+                <input type="text" class="txtoption">
+            </div>
+        <div class="option-box" id="email-box">
             <p>Email</p>
-            <input type="text">
+            <input type="text" class="txtoption">
         </div>
         <div id="identification">
-            <p>What do you identify as?</p>
-            <div id="gender-choices">
-                <input type="radio" name="gender" id="Male"><label for="Male">Male</label>
-                <input type="radio" name="gender" id="feMale"><label for="feMale">Female</label>
-                <input type="radio" name="gender" id="Other"><label for="Other">Other</label>
+            <div class="option-box">
+                <p>What do you identify as?</p>
+                <div id="gender-choices">
+                    <input type="radio" name="gender" id="Male"><label for="Male">Male</label>
+                    <input type="radio" name="gender" id="feMale"><label for="feMale">Female</label>
+                    <input type="radio" name="gender" id="Other"><label for="Other">Other</label>
+                </div>
             </div>
-            <p>What kind of student are you </p>
+            <div class="option-box">
+                <p>What kind of student are you </p>
+                <div id="code-type">
+                    <input type="radio" name="type" id="Coding"><label for="Coding">Coding</label>
+                    <input type="radio" name="type" id="Cyber"><label for="Cyber">Cyber</label>
+                </div>
+            </div>
+            <div class="option-box">
+                <p>What kind of internship are you looking for?</p>
+                <div id="intern-type">
+                    <input type="radio" name="type" id="Counselor"><label for="Counselor">Counselor</label>
+                    <input type="radio" name="type" id="Life Coach"><label for="Life Coach">Life Coach</label>
+                </div>
+            </div>
+            <div id="nav-buttons">
+                <div></div>
+                <div class="page-indicator"><span class="current-page">&bull;</span> &bull; &bull; </div>
+                <button id="to-preferences">&rarr;</button>
+            </div>   
         </div>
     </div>
+    </div>
+    
 </body>
 </html>

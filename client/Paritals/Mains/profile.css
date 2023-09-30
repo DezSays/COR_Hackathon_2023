@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Geologica:wght@100;200;500;700&family=Libre+Baskerville:wght@400;700&display=swap');
+
+body{
+    
+    font-family: 'Geologica', sans-serif;
+    font-family: 'Libre Baskerville', serif;
+}
+#profile-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#profile-data{
+    background-color: rgb(237, 236, 236);
+    padding: 20px;
+}
+.option-box{
+    margin-bottom: 30px;
+}
+.txtoption{
+    width:100%;
+}
+#nav-buttons{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+#to-preferences{
+    border: none;
+}
+.page-indicator{
+    color: gray;
+}
+.current-page{
+    font-size: larger;
+    color: black;
+}
