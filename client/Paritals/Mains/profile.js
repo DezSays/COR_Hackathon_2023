@@ -8,8 +8,8 @@ updateButton.addEventListener('click',(e)=>{
     const selectedImg=imgInput
     const reader= new FileReader();
     reader.onload=(e)=>{
-        profileImg.src=event.target.result
-    }
+        profileImg.src=e.target.result
+    };
     
 
 
