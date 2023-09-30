@@ -1,9 +1,10 @@
 require("dotenv").config();
 const express = require("express");
 const app = express();
+app.use(express.json())
 // const settings = require('./settings')
 require("dotenv").config({ path: "../.env" });
-const { Sequelize } = require("sequelize");
+const {  Sequelize  } = require("sequelize");
 const sequelize = new Sequelize(process.env.URL);
 const { About_us, Users, Mentors, Mentees } = require("./models");
 const request_tables = require("./models/request_tables");
@@ -52,10 +53,27 @@ app.get("/intakeform", async (req, res) => {
   
 });
 
+app.post('/login', async (req, res) => {
+    const email = req.body.email;
+    const user =  await Users.findOne( { where: {email:email }});
+    res.json(user);
+});
+app.post('/register', async (req, res) => {
+    const { name, email, role } = req.body;
+    const news = await Users.create({
+        name,
+        email,
+        role
+    })
+    res.json(newUser)
+});
 
-
-
-
+app.get('/profile/:userId', async (req, res) => {
+    const {userId} = req.params;
+    const user = await Users.findOne({ where: {id:userId }});
+    console.log(user)
+    res.json(user);
+});
 
 app.listen(3000, () => {
   console.log("Server is running on port 3000");
