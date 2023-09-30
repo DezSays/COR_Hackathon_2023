@@ -5,10 +5,11 @@ app.use(express.json())
 require("dotenv").config({ path: "../.env" });
 const { Sequelize } = require("sequelize");
 const sequelize = new Sequelize(process.env.URL);
-const { About_us, Users, Mentors, Mentees } = require("./models");
+const { About_us, Users, Mentors, Mentees, Request_Tables, QR_Table,Intake_Forms } = require("./models");
+
 app.get("/heartbeat", (req, res) => {
-    console.log("Heartbeat");
-    res.send("heartbeat");
+  console.log("Heartbeat");
+  res.send("heartbeat");
 });
 
 const session = require('express-session');
@@ -37,14 +38,29 @@ app.get("/mentors", async (req, res) => {
     const mentorsData = await Mentors.findAll();
     res.send({ mentorsData });
 });
+
 app.get("/mentees", async (req, res) => {
-    try {
-        const menteesData = await Mentees.findAll();
-        res.send({ menteesData });
-    } catch (err) {
-        console.error(err);
-        res.send(err);
-    }
+    const menteesData = await Mentees.findAll();
+    res.send({ menteesData });
+  
+});
+
+app.get("/request_form", async (req, res) => {
+    const requestData = await Request_Tables.findAll();
+    res.send({ requestData });
+  
+});
+
+app.get("/qrcode", async (req, res) => {
+    const qrData = await QR_Table.findAll();
+    res.send({ qrData });
+  
+});
+
+app.get("/intakeform", async (req, res) => {
+    const IntakeData = await Intake_Forms.findAll();
+    res.send({ IntakeData });
+  
 });
 
 app.post('/login', async (req, res) => {
