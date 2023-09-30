@@ -27,11 +27,9 @@ module.exports = {
         type: Sequelize.TEXT
       },
       management: {
-        type: Sequelize.TEXT
+        type: Sequelize.BOOLEAN
       },
-      management: {
-        type: Sequelize.TEXT
-      },
+      
       counselor: {
         type: Sequelize.TEXT
       },
