@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./letstalk.css">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Let's Talk</h1>
+    <div id="askedQuestions">
+        <h3>Questions</h3>
+        <div class="question">
+            <p>How do I contact my mentor?</p>
+            <input type=""text class="questionReply"><button type="submit" id="replyButton">Reply</button> 
+            <a href="#">Replies</a> <!-- This is where the dropdown will go  -->
+        </div>
+        
+    </div>
+    <div id="addQuestion">
+        Have a question?
+        <form id="questionForm">
+            <label>Username</label><br>
+            <input type="text" name="username" id="userName"><br><br>
+            <label>Question</label><br>
+            <input type="text" name="question" id="questionInput"><br>
+            <button type="submit" id="questionSubmit">Submit</button>
+        </form>
+    </div>
+    <script src="./letstalk.js"></script>
+   
+</body>
+</html>
