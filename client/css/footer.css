@@ -1,18 +1,22 @@
 
-.image1{
+.images{
 height: 5px;
 width: 5px;
 display: inline-flex;
+padding: 5px;
+margin-top: 70px;
 }
 
+.image1{
+    margin: 10px;
+}
 .image2{
-    height: 5px;
-    width: 5px;
-    display: inline-flex;
+    margin: 10px;
+}
+.image3{
+    margin: 10px;
 }
 
-image3{
-    height: 5px;
-    width: 5px;
-    display: inline-flex;
+.footerline{
+    margin-bottom: 1px;
 }
