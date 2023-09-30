@@ -1,11 +1,12 @@
 const express = require('express')
 const app = express()
 
+app.get('/heartbeat',(req,res) => {
+    console.log('Heartbeat')
+    res.send('heartbeat')
 
-
-
-
-
+    
+})
 
 
 
