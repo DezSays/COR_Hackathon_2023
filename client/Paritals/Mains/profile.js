@@ -1,4 +1,5 @@
 const profileImg=document.getElementById('profileimg');
+
 const imgInput=document.getElementById('formFile')
 const updateButton=document.getElementById('updatebutton')
 
