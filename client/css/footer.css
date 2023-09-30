@@ -2,14 +2,17 @@
 .image1{
 height: 5px;
 width: 5px;
+display: inline-flex;
 }
 
 .image2{
     height: 5px;
     width: 5px;
+    display: inline-flex;
 }
 
 image3{
     height: 5px;
     width: 5px;
+    display: inline-flex;
 }
