@@ -2,7 +2,7 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Mentors', {
+    await queryInterface.createTable('Mentees', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -20,18 +20,20 @@ module.exports = {
       name: {
         type: Sequelize.TEXT
       },
-      profession: {
+      student_type: {
+        type: Sequelize.STRING
+      },
+      preferred_profession: {
         type: Sequelize.TEXT
       },
-      gender: {
+      preferred_management: {
         type: Sequelize.TEXT
       },
-      management: {
-        type: Sequelize.BOOLEAN
-      },
-      
-      counselor: {
+      preferred_counselor: {
         type: Sequelize.TEXT
+      },
+      gender:{
+        type:Sequelize.TEXT
       },
       same_gender: {
         type: Sequelize.BOOLEAN
@@ -53,6 +55,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Mentors');
+    await queryInterface.dropTable('Mentees');
   }
 };
