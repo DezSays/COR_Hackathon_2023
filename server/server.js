@@ -6,7 +6,7 @@ app.use(express.json())
 require("dotenv").config({ path: "../.env" });
 const {  Sequelize  } = require("sequelize");
 const sequelize = new Sequelize(process.env.URL);
-const { About_us, Users, Mentors, Mentees, Request_Tables, QR_Tables,Intake_Forms } = require("./models");
+const { About_us, Users, Mentors, Mentees, Request_Tables, QR_Table,Intake_Forms } = require("./models");
 
 app.get("/heartbeat", (req, res) => {
   console.log("Heartbeat");
@@ -41,14 +41,14 @@ app.get("/request_form", async (req, res) => {
 });
 
 app.get("/qrcode", async (req, res) => {
-    const qrData = await QR_Tables.findAll();
+    const qrData = await QR_Table.findAll();
     res.send({ qrData });
   
 });
 
 app.get("/intakeform", async (req, res) => {
-    const qrData = await Intake_Forms.findAll();
-    res.send({ qrData });
+    const IntakeData = await Intake_Forms.findAll();
+    res.send({ IntakeData });
   
 });
 
