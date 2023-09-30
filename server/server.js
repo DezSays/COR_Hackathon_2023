@@ -3,10 +3,11 @@ const express = require('express')
 const app = express();
 // const settings = require('./settings')
 require('dotenv').config({ path : '../.env'})
-
 const {Sequelize} = require('sequelize')
 const sequelize = new Sequelize(process.env.URL)
 const {About_us} = require('./models')
+
+
 app.get('/heartbeat',(req,res) => {
     console.log('Heartbeat')
     res.send('heartbeat')
