@@ -6,9 +6,8 @@ app.use(express.json())
 require("dotenv").config({ path: "../.env" });
 const {  Sequelize  } = require("sequelize");
 const sequelize = new Sequelize(process.env.URL);
-const { About_us, Users, Mentors, Mentees } = require("./models");
-const request_tables = require("./models/request_tables");
-const intake_forms = require("./models/intake_forms");
+const { About_us, Users, Mentors, Mentees, Request_Tables, QR_Tables,Intake_Forms } = require("./models");
+
 app.get("/heartbeat", (req, res) => {
   console.log("Heartbeat");
   res.send("heartbeat");
