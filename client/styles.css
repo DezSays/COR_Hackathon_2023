@@ -2,3 +2,19 @@
     margin-left: 20px;
     margin-right: 20px;
 }
+
+.profile-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.mentor-public-image img{
+    border-radius: 50%;
+    height: 200px;
+    width: 200px;
+}
+
+.mentor-public-bio{
+    font-size: 70px;
+}
+
