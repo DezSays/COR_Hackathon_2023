@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./profile.css">
+    <link rel="stylesheet" href="./menteeregistration.css">
     <title>Document</title>
 </head>
 <body>
@@ -28,23 +28,23 @@
     <div id="about-you">
         <h1 id="title">About You</h1>
         <div class="profile-data">
-            <div class="main-content">
+            <div >
                 <div class="option-box" id="name-box">
                     <p>Name</p>
                     <input type="text" class="txtoption">
                 </div>
-                <div class="option-box" id="email-box">
+                <!-- <div class="option-box" id="email-box">
                     <p>Email</p>
                     <input type="text" class="txtoption">
-                </div>
-                <div class="option-box">
+                </div> -->
+                <!-- <div class="option-box">
                     <p>What do you identify as?</p>
                     <div id="gender-choices">
                         <input type="radio" name="gender" id="Male"><label for="Male">Male</label>
                         <input type="radio" name="gender" id="feMale"><label for="feMale">Female</label>
                         <input type="radio" name="gender" id="Other"><label for="Other">Other</label>
                     </div>
-                </div>
+                </div> -->
                 <div class="option-box">
                     <p>What kind of student are you </p>
                     <div id="code-type">
@@ -59,6 +59,11 @@
                         <input type="radio" name="type" id="Life Coach"><label for="Life Coach">Life Coach</label>
                     </div>
                 </div>
+                <div class="option-box">
+                    <p>What professional level are you looking for?</p>
+                        <input type="radio" name="level" id="Coding"><label for="Management">Management</label>
+                        <input type="radio" name="level" id="Cyber"><label for="Coding">Coding</label>
+                </div>
             </div>
             <div class="nav-buttons">
                 <button id="left1">&larr;</button>
@@ -70,30 +75,26 @@
 
 
     <div id="preferences">
-        <h1>Your preferences</h1>
+        <h1>Your Preferences</h1>
         <div class="profile-data">
-            <div class="main-content">
+            <div >
                 <div class="option-box">
                     <p>Who do you want to be mentored by?</p>
                         <input type="radio" name="mentor" id="Coding"><label for="Coding">Software</label>
                         <input type="radio" name="mentor" id="Cyber"><label for="Cyber">Cyber Analyst</label>
                 </div>
+                
                 <div class="option-box">
-                    <p>What professional level are you looking for?</p>
-                        <input type="radio" name="level" id="Coding"><label for="Management">Management</label>
-                        <input type="radio" name="level" id="Cyber"><label for="Coding">Coding</label>
+                    <p>Is it important for your mentor's gender to match?</p>
+                        <input type="radio" name="mentor" id="Y"><label for="M">Yes</label>
+                        <input type="radio" name="mentor" id="N"><label for="F">No</label>
+                        <input type="radio" name="mentor" id="O"><label for="O">N/A</label>
                 </div>
-                <div class="option-box">
-                    <p>What gender would you like your mentor to be?</p>
-                        <input type="radio" name="mentor" id="M"><label for="M">Male</label>
-                        <input type="radio" name="mentor" id="F"><label for="F">Female</label>
-                        <input type="radio" name="mentor" id="O"><label for="O">Any</label>
-                </div>
-                <div class="option-box">
+                <!-- <div class="option-box">
                     <p>How would you like to meet?</p>
                         <input type="radio" name="meeting" id="Inperson"><label for="Inperson">In-person</label>
                         <input type="radio" name="meeting" id="Online"><label for="Online">Online</label>
-                </div>
+                </div> -->
             </div>
             <div class="nav-buttons">
                 <button id="left2">&larr;</button>
@@ -107,18 +108,24 @@
         <h1>Create Profile</h1>
         <div class="profile-data">
             <div class="main-content">
-                <div id="picbox"><img id="profile-pic" src="https://picsum.photos/200/200" alt="">
-                    <h2>Your Name</h2>
+                <div id="options">
+                    <div id="picbox"><img id="profile-pic" src="https://picsum.photos/200/200" alt="">
+                        <input type="text" name="" id="photo-url" placeholder="photo url">
+                        <h2>Your Name</h2>
+                    </div>
+                    <!-- <div class="options-box">
+                        <p>Share a bit about yourself</p>
+                        <textarea name="" id="description" cols="30" rows="10"></textarea>
+                    </div> -->
+                    <div class="option-box" id="name-box">
+                        <p>LinkedIn URL</p>
+                        <input type="text" class="linkedIn">
+                    </div>
                 </div>
-                <div class="options-box">
-                    <p>Share a bit about yourself</p>
-                    <textarea name="" id="description" cols="30" rows="10"></textarea>
-                </div>
-                <div class="option-box" id="name-box">
-                    <p>LinkedIn URL</p>
-                    <input type="text" class="linkedIn">
-                </div>
+
+                <button id="submit-button">SUBMIT</button>
             </div>
+
             <div class="nav-buttons">
                 <button id="left3">&larr;</button>
                 <div class="page-indicator"> &bull;  &bull; <span class="current-page">&bull;</span></div>
