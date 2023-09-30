@@ -1,9 +1,9 @@
 require('dotenv').config();
 module.exports = {
   "development": {
-    "username": process.env.user,
+    "username": "lmfhgebl",
     "password": process.env.PW,
-    "database": process.env.user,
+    "database": "lmfhgebl",
     "host": process.env.HOST,
     "dialect": "postgres"
   },
