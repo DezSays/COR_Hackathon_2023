@@ -15,13 +15,39 @@
             <input type="email" id="email" name="email" placeholder="Enter your e-mail" required><br>
             <label for="password">Password:</label><br>
             <input type="password" id="password" name="password" placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;" required><br><br>
-            <input type="submit" value="Submit">
+            <button onclick="login()">Submit</button>
         </form> 
     </div>
 </body>
 
 <script>
-    
+    function login() {
+        let email = document.getElementById("email").value;
+        let password = document.getElementById("password").value;
+
+        let requestBody = {
+            email: email,
+            password: password
+
+        }
+
+        fetch("/login", {
+            method: "POST",
+            headers:  {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(requestBody)
+        }).then(response => {
+            if (!response.ok) {
+                throw new Error("Network response was not ok");
+            }
+            return response.json();
+        }).then(data => {
+            console.log(data)
+        }).catch(error => {
+            console.error("Fetcherror:", error);
+        })
+    }
 </script>
 
 </html>
