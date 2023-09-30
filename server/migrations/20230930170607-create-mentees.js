@@ -32,6 +32,9 @@ module.exports = {
       preferred_counselor: {
         type: Sequelize.TEXT
       },
+      gender:{
+        type:Sequelize.TEXT
+      },
       same_gender: {
         type: Sequelize.BOOLEAN
       },

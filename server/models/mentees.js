@@ -23,6 +23,7 @@ module.exports = (sequelize, DataTypes) => {
     preferred_profession: DataTypes.TEXT,
     preferred_management: DataTypes.TEXT,
     preferred_counselor: DataTypes.TEXT,
+    gender: DataTypes.TEXT,
     same_gender: DataTypes.BOOLEAN,
     linkedin_url: DataTypes.TEXT,
     photo_url: DataTypes.TEXT
