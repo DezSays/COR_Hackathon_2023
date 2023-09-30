@@ -1,24 +1,24 @@
-require('dotenv').config({ path : '../.env'})
+require('dotenv').config();
 module.exports = {
   "development": {
-    "username": USER,
-    "password": PW,
-    "database": URL,
-    "host": "127.0.0.1",
+    "username": "lmfhgebl",
+    "password": process.env.PW,
+    "database": "lmfhgebl",
+    "host": process.env.HOST,
     "dialect": "postgres"
   },
   "test": {
-    "username": "root",
-    "password": null,
-    "database": "database_test",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
+    "username": "lmfhgebl",
+    "password": process.env.PW,
+    "database": "lmfhgebl",
+    "host": process.env.HOST,
+    "dialect": "postgres"
   },
   "production": {
-    "username": USER,
-    "password": PW,
-    "database": URL,
-    "host": "127.0.0.1",
+    "username": "lmfhgebl",
+    "password": process.env.PW,
+    "database": "lmfhgebl",
+    "host": process.env.HOST,
     "dialect": "postgres"
   }
 }
