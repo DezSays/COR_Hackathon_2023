@@ -21,6 +21,9 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    border-radius: 15px;
+    border: 1px solid black;
+    box-shadow: 1px 2px;
 }
 .option-box{
     margin-bottom: 30px;
@@ -78,5 +81,5 @@ button{
     margin-right:-12px;
     font-family: 'Libre Baskerville', serif;
     background-color: none;
-    
+
 }
