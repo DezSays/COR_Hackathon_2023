@@ -1,23 +1,23 @@
-require('dotenv').config()
+require('dotenv').config();
 module.exports = {
   "development": {
-    "username": process.env.USER,
+    "username": "lmfhgebl",
     "password": process.env.PW,
-    "database": process.env.USER,
+    "database": "lmfhgebl",
     "host": process.env.HOST,
     "dialect": "postgres"
   },
   "test": {
-    "username": process.env.USER,
+    "username": "lmfhgebl",
     "password": process.env.PW,
-    "database": process.env.USER,
+    "database": "lmfhgebl",
     "host": process.env.HOST,
     "dialect": "postgres"
   },
   "production": {
-    "username": process.env.USER,
+    "username": "lmfhgebl",
     "password": process.env.PW,
-    "database": process.env.USER,
+    "database": "lmfhgebl",
     "host": process.env.HOST,
     "dialect": "postgres"
   }
