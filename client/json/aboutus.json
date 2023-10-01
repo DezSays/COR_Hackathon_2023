@@ -21,8 +21,3 @@
             "name": "Ron Cofield"
         }
 ]}
-
-aboutus.map((personnel, index) => {
-    let source = personnel.image;
-    
-})
