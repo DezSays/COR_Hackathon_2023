@@ -1,0 +1,81 @@
+<body>
+    <div class="card" style="width: 18rem;">
+        <img src="..." class="card-img-top" id="profileimg" alt="...">
+        <div class="card-body">
+          <h3 class="profile-header" id="usernameDisplay"></h3>
+          <p id="userinfo"></p>
+        </div>
+      </div>
+
+
+    <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+    Edit profile
+  </button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Edit Profile</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <label aria-hidden="true">&times;</label>
+          </button>
+        </div>
+        <div class="modal-body">
+    <form class="row g-3" id="profilecard">
+
+        <div class="mb-3">
+  <label for="formFile" class="form-label">Add Profile Image</label>
+  <input class="form-control" type="file" id="formFile">
+</div>
+        <div class="col-md-6">
+        <label for="inputEmail4" class="form-label">Email</label>
+        <input type="email" class="form-control" id="inputEmail4">
+        </div>
+        <div class="col-md-6">
+        <label for="inputName4" class="form-label">Name</label>
+        <input type="name" class="form-control" id="inputName4">
+        </div>
+        <div class="input-group">
+            <label for="inputGender4" class="input-group-text">Gender</label>
+            <input id="inputGender4" class="form-control" aria-label="Bio"></input>
+          </div>
+          <div class="input-group">
+            <label for="inputProfession4" class="input-group-text">Profession</label>
+            <input id="inputProfession4" class="form-control" aria-label="Profession"></input>
+          </div>
+          <div class="input-group">
+            <label for="inputLinkedInURL" class="input-group-text">LinkedIn Profile</label>
+            <input id="inputLinkedInURL" class="form-control" aria-label="LinkedIn Profile" type="url" placeholder="https://www.linkedin.com/in/your-username">
+          </div>
+          <div class="input-group">
+            <label for="leadership" class="input-group-text">Leadership</label>
+            <select id="leadership">
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+          </div>
+          <div class="input-group">
+            <label for="counselor" class="input-group-text">Counselor</label>
+            <select id="counselor">
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+          </div>
+          <div class="col-12">
+            <button type="submit" class="btn btn-primary" id="updatebutton">Update profile</button>
+          </div>
+      </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="dismiss" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" id="save" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</body>
