@@ -1,17 +1,17 @@
 const express = require("express");
+import * as pg from 'pg';
 const hostname = "127.0.0.1";
 const port = 5000;
 const app = express();
 const bcrypt = require('bcryptjs'); 
-
 // const helmet = require('helmet');
 // const morgan = require('morgan');
-
 const session = require('express-session');
 require("dotenv").config({ path: "../.env" });
 const { About_us, Users, Mentors, Mentees, Request_Tables, QR_Table } = require("./models");
 const {Sequelize} = require('sequelize')
-const sequelize = new Sequelize(process.env.URL)
+const sequelize = new Sequelize(process.env.URL, {
+    dialectModule: pg})
 
 app.get("/", (req, res) => {
     console.log("Heartbeat");
