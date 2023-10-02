@@ -1,42 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./menteeregistration.css">
-    <title>Document</title>
-</head>
-<body>
-    <div>
-        <link rel="stylesheet" href="../Header.css">
-        <div class="nav-bar">
-            <div class="main-options">
-                <a href="./landing.html"><img id="logo" src="../../Asset+1.png" alt="CoR Logo"></a>
-                <a href="./landing.html">Home</a>
-                <a href="./Aboutus.html">About Us</a>
-                <a href="./mentorProgram.html">Mentor || Mentee Program</a>
-                <a href="./letstalk.html">Let's Talk</a>
-            </div>
-            <div class="login">
-                <a href="../Mains/login.html">Sign In</a>
-            </div>  
-        </div>
-    </div> 
 
     <div id="about-you">
         <h1 id="title">About You</h1>
         <div class="profile-data">
             <div >
-                <div class="option-box" id="name-box">
-                    <p>Name</p>
-                    <input type="text" class="txtoption">
-                </div>
                 <div class="option-box">
                     <p>What kind of student are you </p>
                     <div id="code-type">
-                        <input type="radio" name="type" id="Coding"><label for="Coding">Coding</label>
-                        <input type="radio" name="type" id="Cyber"><label for="Cyber">Cyber</label>
+                        <select id="studentType"></select>
+                        <option value="Web Development" type="radio" name="type" id="Coding"><label for="Coding">Web Development</option>
+                        <option value="CyberSecurity" type="radio" name="type" id="Cyber"><label for="Cyber">Cyber Security</option>
+                        <option value="UI/UX" type="radio" name="type" id="UI"><label for="UI">UI/UX</option>
                     </div>
                 </div>
                 <div class="option-box">
@@ -45,11 +18,6 @@
                         <input type="radio" name="type" id="Counselor"><label for="Counselor">Counselor</label>
                         <input type="radio" name="type" id="Life Coach"><label for="Life Coach">Life Coach</label>
                     </div>
-                </div>
-                <div class="option-box">
-                    <p>What professional level are you looking for?</p>
-                        <input type="radio" name="level" id="Coding"><label for="Management">Management</label>
-                        <input type="radio" name="level" id="Cyber"><label for="Coding">Coding</label>
                 </div>
             </div>
             <div class="nav-buttons">
@@ -66,16 +34,10 @@
         <div class="profile-data">
             <div >
                 <div class="option-box">
-                    <p>Who do you want to be mentored by?</p>
-                        <input type="radio" name="mentor" id="Coding"><label for="Coding">Software</label>
-                        <input type="radio" name="mentor" id="Cyber"><label for="Cyber">Cyber Analyst</label>
-                </div>
-                
-                <div class="option-box">
-                    <p>Is it important for your mentor's gender to match?</p>
-                        <input type="radio" name="mentor" id="Y"><label for="M">Yes</label>
-                        <input type="radio" name="mentor" id="N"><label for="F">No</label>
-                        <input type="radio" name="mentor" id="O"><label for="O">N/A</label>
+                    <select id="genderMatch">Is it important for your mentor's gender to match?</select>
+                        <option type="radio" name="mentor" id="Y"><label for="M">Yes</option>
+                        <option type="radio" name="mentor" id="N"><label for="F">No</option>
+                        <option type="radio" name="mentor" id="O"><label for="O">N/A</option>
                 </div>
             </div>
             <div class="nav-buttons">
@@ -91,13 +53,13 @@
         <div class="profile-data">
             <div class="main-content">
                 <div id="options">
-                    <div id="picbox"><img id="profile-pic" src="https://picsum.photos/200/200" alt="">
-                        <input type="text" name="" id="photo-url" placeholder="photo url">
-                        <h2>Your Name</h2>
+                    <div id="picbox">
+                        <img id="profile-pic" src="https://picsum.photos/200/200" alt="">
+                        <input type="image" name="" id="photo-url" placeholder="photo url">
                     </div>
                     <div class="option-box" id="name-box">
                         <p>LinkedIn URL</p>
-                        <input type="text" class="linkedIn">
+                        <input type="text" class="linkedIn" id="linkedin">
                     </div>
                 </div>
 

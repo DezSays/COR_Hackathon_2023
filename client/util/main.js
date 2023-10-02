@@ -23,6 +23,12 @@ const loginPost = (body) => {
 
 }
 
+const registerFormSetup = () => {
+    if (location.href === 'Registration'){
+    const submit = document.getElementById('submit')
+    submit.addEventListener('click', registerFormHandler)
+}}
+
 const registerFormHandler = () => {
     const registerForm = document.getElementById('registerForm')
     const name = registerForm.getElementById('nameInput')
@@ -36,7 +42,6 @@ const registerFormHandler = () => {
         "role": `${role.value}`,
         "password": `${password.value}` 
     }
-
     registrationRoute(body)
 }
 
@@ -128,8 +133,87 @@ const imageFunction = async (imageInfo) => {
     
 }
 
-const newUserInfo = async (body) => {
-    const data = await fetch('insertpathhere/userid'// <--- insert user id here
+const setupMenteeRegistration = () => {
+    if (location.href === '/menteeregistration') {
+        let about=document.getElementById("about-you");
+        let preference=document.getElementById("preferences");
+        let create=document.getElementById("createp");
+        about.style.display="flex";
+        let right1b=document.getElementById("right1");
+        let left2b=document.getElementById("left2");
+        let right2b=document.getElementById("right2");
+        let left3b=document.getElementById("left3");
+
+        let subButton=document.getElementById("submit-button");
+
+        right1b.addEventListener("click",()=>{
+            about.style.display="none";
+            preference.style.display="flex";
+            create.style.display="none";
+        })
+        left2b.addEventListener("click",()=>{
+            about.style.display="flex";
+            preference.style.display="none";
+            create.style.display="none";
+        })
+        right2b.addEventListener("click",()=>{
+            about.style.display="none";
+            preference.style.display="none";
+            create.style.display="flex";
+        })
+        left3b.addEventListener("click",()=>{
+            about.style.display="none";
+            preference.style.display="flex";
+            create.style.display="none";
+        })
+    }
+}
+
+const menteeRegistration = (body) => {
+    if (location.href === 'menteeregistration') {
+    const studentType = document.getElementById('studentType')
+    const internshipType = document.getElementById('intern-type')
+    const leaderType = document.getElementById('leaderType')
+    const genderMatch = document.getElementById('genderMatch')
+    const photoURL = document.getElementById('photo-url')
+    const linkedin = document.getElementById('linkedin')
+
+    let student = studentType.value;
+    let internship = internshipType.value;
+    let leader = leaderType.value;
+    let gender = genderMatch.value;
+    let photo = photoUrl.value;
+    let linkedinLink = linkedin.value;
+
+    let body = {
+        "user_id": `${userId}`,
+        "student_type": `${student}`,
+        "preferred_profession": `${internship}`,
+        "preferred_leader": `${leader}`,
+        "same_gender": `${gender}`,
+        "linkedin_url": `${linkedinLink}`,
+        "photo_url": `0`
+    }
+
+    menteePost(body);
+    }
+    
+}
+
+const menteePost = (body) => {
+    const data = fetch(`/mentees`, {
+        body: `${body}`,
+        headers: {
+            "Content-Type": "application/json"
+        },
+        method: "POST"
+    })
+    const response = data.json()
+    return response
+}
+
+const newUserInfo = async (body, userId) => {
+    const data = await fetch(`profile/${userId}`// <--- insert user id here
     , {
         body: JSON.stringify(body),
         headers: {
