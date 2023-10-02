@@ -62,7 +62,7 @@ const imageFunction = async (imageInfo) => {
 }
 
 const newUserInfo = async (body) => {
-    const data = await fetch('/profile/edit/'// <--- insert user id here
+    const data = await fetch('insertpathhere/userid'// <--- insert user id here
     , {
         body: JSON.stringify(body),
         headers: {
