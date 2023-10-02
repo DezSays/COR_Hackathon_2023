@@ -1,0 +1,28 @@
+.buttons{
+   
+    display: inline-flex;
+    
+    
+}
+button{
+    border-radius: 100px;
+    width: 100px;
+    height: 70px;
+}
+
+.link{
+    margin: 8px;
+
+}
+.email{
+    margin: 8px;
+}
+.phone{
+    margin: 8px;
+}
+.card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+}
