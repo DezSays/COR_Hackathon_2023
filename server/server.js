@@ -4,8 +4,8 @@ const hostname = "127.0.0.1";
 const port = 5000;
 const app = express();
 const bcrypt = require('bcryptjs'); 
-// const helmet = require('helmet');
-// const morgan = require('morgan');
+const helmet = require('helmet');
+const morgan = require('morgan');
 const session = require('express-session');
 require("dotenv").config({ path: "../.env" });
 const { About_us, Users, Mentors, Mentees, Request_Tables, QR_Table } = require("./models");
@@ -20,8 +20,8 @@ app.get("/", (req, res) => {
 
 // middlewares
 app.use(express.json());
-// app.use(morgan('combined'));
-// app.use(helmet());
+app.use(morgan('combined'));
+app.use(helmet());
 app.use(session({
     secret: process.env.SESSION_SECRET,
     resave: false,
