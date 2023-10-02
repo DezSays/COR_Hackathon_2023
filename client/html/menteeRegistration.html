@@ -7,6 +7,7 @@
     <title>Mentee Registration</title>
     <link rel="stylesheet" href="../css/Header.css">
     <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/menteeRegistration.css">
 </head>
 <body>
     
@@ -30,27 +31,39 @@
 
     <!-- CONTENT STARTS HERE -->
 
-    
     <div id="about-you">
         <h1 id="title">About You</h1>
         <div class="profile-data">
             <div >
+                <div class="option-box" id="name-box">
+                    <p>Name</p>
+                    <input type="text" class="txtoption">
+                </div>
+                <div class="option-box" id="email-box">
+                    <p>Email</p>
+                    <input type="email" class="txtoption">
+                </div>
+                <div class="option-box">
+                    <p>What is your gender?</p>
+                    <input type="radio" name="gender" value="Yes" id="gender-yes">
+                    <label for="gender-yes">Yes</label>
+
+                    <input type="radio" name="gender" value="No" id="gender-no">
+                    <label for="gender-no">No</label>
+
+                    <input type="radio" name="gender" value="Other" id="gender-other">
+                    <label for="gender-other">Other</label>
+
+                    <input type="text" name="other_gender" id="other-gender-input" placeholder="Specify your gender" style="display: none;">
+                </div>
                 <div class="option-box">
                     <p>What kind of student are you </p>
                     <div id="code-type">
-                        <select id="studentType"></select>
-                        <option value="Web Development" type="radio" name="type" id="Coding"><label for="Coding">Web Development</option>
-                        <option value="CyberSecurity" type="radio" name="type" id="Cyber"><label for="Cyber">Cyber Security</option>
-                        <option value="UI/UX" type="radio" name="type" id="UI"><label for="UI">UI/UX</option>
+                        <input type="radio" name="studentType" id="Coding"><label for="Coding">Coding</label>
+                        <input type="radio" name="studentType" id="Cyber"><label for="Cyber">Cyber</label>
                     </div>
                 </div>
-                <div class="option-box">
-                    <p>What kind of internship are you looking for?</p>
-                    <div id="intern-type">
-                        <input type="radio" name="type" id="Counselor"><label for="Counselor">Counselor</label>
-                        <input type="radio" name="type" id="Life Coach"><label for="Life Coach">Life Coach</label>
-                    </div>
-                </div>
+                
             </div>
             <div class="nav-buttons">
                 <button id="left1">&larr;</button>
@@ -66,10 +79,28 @@
         <div class="profile-data">
             <div >
                 <div class="option-box">
-                    <select id="genderMatch">Is it important for your mentor's gender to match?</select>
-                        <option type="radio" name="mentor" id="Y"><label for="M">Yes</option>
-                        <option type="radio" name="mentor" id="N"><label for="F">No</option>
-                        <option type="radio" name="mentor" id="O"><label for="O">N/A</option>
+                    <p>Do you prefer to be mentored by a counselor or a life coach?</p>
+                    <div id="intern-type">
+                        <input type="radio" name="internType" id="Counselor"><label for="Counselor">Counselor</label>
+                        <input type="radio" name="internType" id="Life Coach"><label for="Life Coach">Life Coach</label>
+                    </div>
+                </div>
+                <div class="option-box">
+                    <p>Do you prefer to be mentored by a member of management or leadership?</p>
+                        <input type="radio" name="mentorBy" id="Management"><label for="Management">Management</label>
+                        <input type="radio" name="mentorBy" id="Leadership"><label for="Coding">Leadership</label>
+                </div>
+                <div class="option-box">
+                    <p>Question: Do you prefer to be mentored by a practicing professional (a software engineer or a cyber analyst)?</p>
+                        <input type="radio" name="mentorPrefer" id="yes"><label for="yes">Yes</label>
+                        <input type="radio" name="mentorPrefer" id="no"><label for="no">No</label>
+                </div>
+
+                <div class="option-box">
+                    <p>Is it important for your mentor's gender to match?</p>
+                        <input type="radio" name="mentorGender" id="Y"><label for="M">Yes</label>
+                        <input type="radio" name="mentorGender" id="N"><label for="F">No</label>
+                        <input type="radio" name="mentorGender" id="O"><label for="O">N/A</label>
                 </div>
             </div>
             <div class="nav-buttons">
@@ -79,19 +110,19 @@
             </div> 
         </div>
     </div>
-    
+
     <div id="createp">
         <h1>Create Profile</h1>
         <div class="profile-data">
             <div class="main-content">
                 <div id="options">
-                    <div id="picbox">
-                        <img id="profile-pic" src="https://picsum.photos/200/200" alt="">
-                        <input type="image" name="" id="photo-url" placeholder="photo url">
+                    <div id="picbox"><img id="profile-pic" src="https://picsum.photos/200/200" alt="">
+                        <input type="text" name="" id="photo-url" placeholder="photo url">
+                        <h2>Your Name</h2>
                     </div>
                     <div class="option-box" id="name-box">
                         <p>LinkedIn URL</p>
-                        <input type="text" class="linkedIn" id="linkedin">
+                        <input type="text" class="linkedIn">
                     </div>
                 </div>
 
@@ -103,14 +134,9 @@
                 <div class="page-indicator"> &bull;  &bull; <span class="current-page">&bull;</span></div>
                 <button id="right3">&rarr;</button>
             </div> 
-            
+
         </div>
     </div>
-
-</body>
-<script type="text/javascript" src="./mentee.js"></script>
-
-</html>
 
     <!-- FOOTER -->
 
@@ -168,5 +194,7 @@
     </div>
 
 </body>
+
+<script type="text/javascript" src="../js/menteeRegistration.js"></script>
 
 </html>

@@ -38,6 +38,7 @@ body{
 }
 button{
     border: none;
+    cursor: pointer;
 }
 .page-indicator{
     color: gray;
