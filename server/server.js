@@ -1,20 +1,22 @@
-require("dotenv").config();
+// require("dotenv").config();
 const express = require("express");
 const app = express();
+const bcrypt = require('bcrypt');
 app.use(express.json())
 require("dotenv").config({ path: "../.env" });
 const { Sequelize } = require("sequelize");
-const sequelize = new Sequelize(process.env.URL);
-const { About_us, Users, Mentors, Mentees, Request_Tables, QR_Table,Intake_Forms } = require("./models");
+// const sequelize = new Sequelize(process.env.URL);
+const { About_us, Users, Mentors, Mentees, Request_Tables, QR_Table, Intake_Forms } = require("./models");
 
 app.get("/heartbeat", (req, res) => {
   console.log("Heartbeat");
   res.send("heartbeat");
 });
 
+app.use(express.json());
 const session = require('express-session');
 app.use(session({
-    secret: 'digitalcrafts', // Replace with a secret key for session encryption
+    secret: process.env.SESSION_SECRET, // Replace with a secret key for session encryption
     resave: false,
     saveUninitialized: true,
     cookie: {
@@ -29,6 +31,13 @@ app.get("/users", async (req, res) => {
     console.log("Users");
     res.send(usersData);
 });
+
+app.get("/users/:userId", async (req, res) => {
+    const { id } = req.params;
+    const oneUser = await Users.findOne({ where: id })
+    res.json(oneUser);
+});
+
 app.get("/aboutus", async (req, res) => {
     const aboutUs = await About_us.findAll();
     res.send({ aboutUs });
@@ -39,11 +48,23 @@ app.get("/mentors", async (req, res) => {
     res.send({ mentorsData });
 });
 
+app.get("/mentors/:mentorId", async (req, res) => {
+    const { id } = req.params;
+    const oneMentor = await Mentors.findOne({ where: id })
+    res.json(oneMentor)
+})
+
 app.get("/mentees", async (req, res) => {
     const menteesData = await Mentees.findAll();
     res.send({ menteesData });
   
 });
+
+app.get("/mentees/:menteeId", async (req, res) => {
+    const { id } = req.params;
+    const oneMentee = await Mentees.findOne({ where: id });
+    res.json(oneMentee);
+})
 
 app.get("/request_form", async (req, res) => {
     const requestData = await Request_Tables.findAll();
@@ -64,23 +85,28 @@ app.get("/intakeform", async (req, res) => {
 });
 
 app.post('/login', async (req, res) => {
-    const email = req.body.email;
-    const user = await Users.findOne({ where: { email: email } });
-
-    if (user) {
-        // Store user information in the session
-        req.session.user = user;
-        res.json(user);
-    } else {
-        res.status(401).json({ message: 'Invalid credentials' });
+    const { name, password } = req.body;
+    const user = await Users.findOne({ where: { name } });
+  
+    if (!user) {
+      return res.status(401).json({ message: 'Invalid credentials' });
     }
-});
+    const passwordMatch = await bcrypt.compare(password, user.password);
+    
+    if (!passwordMatch) {
+      return res.status(401).json({ message: 'Incorrect password.' });
+    }
+    req.session.user = user;
+    res.json(user);
+  });
+  
 
 app.post('/register', async (req, res) => {
-    const { name, email, role } = req.body;
+    const { name, email, password, role } = req.body;
     const newUser = await Users.create({
         name,
         email,
+        password,
         role
     });
     req.session.user = newUser; // Log the user in automatically
@@ -98,7 +124,7 @@ function requireLogin(req, res, next) {
     if (req.session.user) {
         next(); // User is authenticated, proceed to the next middleware/route handler
     } else {
-        res.status(401).json({ message: 'Unauthorized' });
+        res.status(401).json({ "message": "Unauthorized" });
     }
 }
 
