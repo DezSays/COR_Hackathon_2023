@@ -1,33 +1,58 @@
-const express = require ('express');
-const app = express();
-const { user } = require('./models');
+const app = document.getElementById('app');
+const form = document.getElementById('profilecard');
+const saveButton = document.getElementById('save');
+const dismissButton = document.getElementById('dismiss');
 
-app.use(express.json());
+const formHandler = () => {
+    let name = form.getElementById('inputName4')
+    let email = form.getElementById('inputEmail4')
+    let gender = form.getElementById('inputGender4')
+    let profession = form.getElementById('inputProfession4')
+    let leadership = form.getElementById('leadership')
+    let counselor = form.getElementById('counselor')
+    let image = form.getElementById('formFile')
 
-//This is the bare bones the fetch function
-app.get ('/api/users', async (req, res) => {
-// const {Firstname, Lastname};
-try {
-
-    const user = await User.findOne({ where: { userid }});
-    res.json(users);
-} catch (error) {
-    console.error(error);
-    res.status(500).json({ error: "Server error"});
+    const body = {
+        "name": `${name}`,
+        "email": `${email}`,
+        "gender": `${gender}`,
+        "profession": `${profession}`,
+        "leadership": `${leadership}`,
+        "counselor": `${counselor}`
+    }
+    
+    functionSplit(body, image);
 }
-})
 
+const functionSplit = (value1, value2) => {
+    imageFunction(value2);
+    newUserInfo(value1);
+}
 
-// const profileImg=document.getElementById('profileimg');
+const imageFunction = async (imageInfo) => {
+    const data = await fetch ('/insertpathnamehere', {
+        body: imageInfo,
+        headers: {
+            "Content-Type": "image"
+        },
+        method: "POST"
+    })
+    const response = data.json();
+    return response;
+    
+}
 
-// const imgInput=document.getElementById('formFile')
-// const profilecard=document.getElementById('profilecard')
+const newUserInfo = async (body) => {
+    const data = await fetch('/profile/edit/'// <--- insert user id here
+    , {
+        body: JSON.stringify(body),
+        headers: {
+            "Content-Type": "application/JSON"
+        },
+        method: "POST"
+    })
+    const response = await data.json()
+    return response;
+}
 
-// updateButton.addEventListener('click',(e)=>{
-//     e.preventDefault();
-
-//     const selectedImg=imgInput
-//     const reader= new FileReader();
-//     reader.onload=(e)=>{
-//         profileImg.src=e.target.result
-//     };
+saveButton.addEventListener(click, formHandler);
