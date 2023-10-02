@@ -1,5 +1,5 @@
 const express = require("express");
-import * as pg from 'pg';
+const pg = require('pg')
 const hostname = "127.0.0.1";
 const port = 5000;
 const app = express();
@@ -10,6 +10,7 @@ const session = require('express-session');
 require("dotenv").config({ path: "../.env" });
 const { About_us, Users, Mentors, Mentees, Request_Tables, QR_Table } = require("./models");
 const {Sequelize} = require('sequelize')
+
 const sequelize = new Sequelize(process.env.URL, {
     dialectModule: pg})
 
@@ -156,36 +157,51 @@ app.get("/qrcode", async (req, res) => {
 
 });
 
-app.post('/login', async (req, res) => {
-    const { name, password } = req.body;
-    const user = await Users.findOne({ where: { name } });
 
-    if (!user) {
-        return res.status(401).json({ message: 'Invalid credentials' });
+
+app.post("/login",  async (req, res) => {
+    const { email, password } = req.body;
+    try {
+      const user = await Users.findOne({ where: { email:email } });
+      console.log(user)
+      if (!user) {
+        return res.status(401).json({ error: "Invalid username or password" });
+      }
+      const isPasswordValid = await bcrypt.compare(password, user.password);
+      if (!isPasswordValid) {
+        return res.status(401).json({ error: "Invalid username or password" });
+      }
+
+      res.json({
+     
+        message: "Sign in successful",
+        
+      });
+    } catch (error) {
+      console.error("Error signing in:", error);
+      res.status(500).json({ error: "Internal server error" });
     }
-
-    const passwordMatch = await bcrypt.compare(password, user.password);
-
-    if (!passwordMatch) {
-        return res.status(401).json({ message: 'Incorrect password.' });
-    }
-    req.session.user = user;
-    res.json(user);
-});
+  });
 
 
-app.post('/register', async (req, res) => {
+
+app.post("/register", async (req, res) => {
     const { name, email, password, role } = req.body;
-    const hashedPassword = await bcrypt.hash(password, 10); // Hash the password with bcryptjs
-    const newUser = await Users.create({
-        name,
-        email,
-        password: hashedPassword,
-        role
-    });
-    req.session.user = newUser; // Log the user in automatically
-    res.json(newUser);
-});
+    try {
+      const existingUser = await Users.findOne({where: {email:email}});
+      if (existingUser) {
+        return res.status(409).json({ error: "Email already exists" });
+      }
+      await bcrypt.hash(password, 10);
+      await Users.create({name,email,password,role})
+      res.json({ message: "User created successfully" });
+    } catch (error) {
+      console.error("Error creating user:", error);
+      res.status(500).json({ error: "Internal server error" });
+    }
+  });
+  
+  
 
 app.get('/profile/:userId', requireLogin, async (req, res) => {
     const { userId } = req.params;
