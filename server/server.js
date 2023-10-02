@@ -5,19 +5,21 @@ const port = 5000;
 const app = express();
 const server = http.createServer(app);
 const bcrypt = require('bcrypt');
+const helmet = require('helmet');
+const morgan = require('morgan');
+const session = require('express-session');
 app.use(express.json())
 require("dotenv").config({ path: "../.env" });
-const { Sequelize } = require("sequelize");
-// const sequelize = new Sequelize(process.env.URL);
-const { About_us, Users, Mentors, Mentees, Request_Tables, QR_Table, Intake_Forms } = require("./models");
+const { About_us, Users, Mentors, Mentees, Request_Tables, QR_Table } = require("./models");
 
-app.get("/heartbeat", (req, res) => {
+app.get("/", (req, res) => {
   console.log("Heartbeat");
   res.send("heartbeat");
 });
-
+    //middlewares//
 app.use(express.json());
-const session = require('express-session');
+app.use(morgan('combined'));
+app.use(helmet());
 app.use(session({
     secret: process.env.SESSION_SECRET, // Replace with a secret key for session encryption
     resave: false,
@@ -27,12 +29,19 @@ app.use(session({
         maxAge: 3600000, // Session duration in milliseconds (e.g., 1 hour)
     },
 }));
+const requireLogin = (req, res, next) => {
+    if (req.session.user) {
+        next(); // User is authenticated, proceed to the next middleware/route handler
+    } else {
+        res.status(401).json({ "message": "Unauthorized" });
+    }
+}
 
-
+ //routes//
 app.get("/users", async (req, res) => {
     const usersData = await Users.findAll();
     console.log("Users");
-    res.send(usersData);
+    res.json(usersData);
 });
 
 app.get("/users/:userId", async (req, res) => {
@@ -53,12 +62,12 @@ app.put("/users/:id", async (req, res) => {
 
 app.get("/aboutus", async (req, res) => {
     const aboutUs = await About_us.findAll();
-    res.send({ aboutUs });
+    res.json(aboutUs);
 });
 
 app.get("/mentors", async (req, res) => {
-    const mentorsData = await Mentors.findAll();
-    res.send({ mentorsData });
+    const mentors = await Mentors.findAll();
+    res.json(mentors);
 });
 
 app.get("/mentors/:mentorId", async (req, res) => {
@@ -94,8 +103,8 @@ app.put("/mentors/:id", async (req, res) => {
 });
 
 app.get("/mentees", async (req, res) => {
-    const menteesData = await Mentees.findAll();
-    res.send({ menteesData });
+    const mentees = await Mentees.findAll();
+    res.json(mentees);
   
 });
 
@@ -134,29 +143,16 @@ app.put("/mentees/:id", async (req, res) => {
 
 app.get("/request_form", async (req, res) => {
     const requestData = await Request_Tables.findAll();
-    res.send({ requestData });
+    res.json(requestData);
   
 });
 
 app.get("/qrcode", async (req, res) => {
     const qrData = await QR_Table.findAll();
-    res.send({ qrData });
+    res.json(qrData);
   
 });
 
-app.get("/intakeform", async (req, res) => {
-    const IntakeData = await Intake_Forms.findAll();
-    res.send({ IntakeData });
-  
-});
-
-const requireLogin = (req, res, next) => {
-    if (req.session.user) {
-        next(); // User is authenticated, proceed to the next middleware/route handler
-    } else {
-        res.status(401).json({ "message": "Unauthorized" });
-    }
-}
 
 app.post('/login', async (req, res) => {
     const { name, password } = req.body;
@@ -201,6 +197,7 @@ app.get('/logout', (req, res) => {
         }
         res.redirect('/'); // Redirect to the login or home page
     });
+    res.send('logged out');
 });
 
 server.listen(port, hostname, () => {
