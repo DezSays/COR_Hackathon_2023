@@ -1,15 +1,16 @@
 const app = document.getElementById('app');
-const form = document.getElementById('profilecard');
-const saveButton = document.getElementById('save');
-const dismissButton = document.getElementById('dismiss');
 
 
 const setup = () => {
+    const form = app.getElementById('profilecard');
+    const saveButton = form.getElementById('save');
+    const dismissButton = form.getElementById('dismiss');
     const img = document.getElementById('profileimg')
     const user = document.getElementById('userinfo')
     const name = document.getElementById('usernameDisplay')
     const userInfo = fetchUser(userId);
     const userImg = fetchImg(userId);
+    saveButton.addEventListener(click, formHandler);
 
     name.innerHTML = userInfo.name;
     img.innerHTML = userImg.path;
@@ -80,4 +81,3 @@ const fetchUser = async (userId) => {
     const response = data.json();
     return response;
 }
-saveButton.addEventListener(click, formHandler);
