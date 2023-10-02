@@ -3,6 +3,25 @@ const form = document.getElementById('profilecard');
 const saveButton = document.getElementById('save');
 const dismissButton = document.getElementById('dismiss');
 
+
+const setup = () => {
+    const img = document.getElementById('profileimg')
+    const user = document.getElementById('userinfo')
+    const name = document.getElementById('usernameDisplay')
+    const userInfo = fetchUser(userId);
+    const userImg = fetchImg(userId);
+
+    name.innerHTML = userInfo.name;
+    img.innerHTML = userImg.path;
+    user.innerHTML = `
+        <p id="email">Email: ${userInfo.email}</p>
+        <p id="profession">Profession: ${userInfo.profession}</p>
+        <p id="gender">Gender: ${userInfo.gender}</p>
+        <p id="leadership">Leadership Position? ${userInfo.leadership}</p>\
+        <p id="counselor">Counselor? ${userInfo.counselor}</p>
+    `
+}
+
 const formHandler = () => {
     let name = form.getElementById('inputName4')
     let email = form.getElementById('inputEmail4')
@@ -55,4 +74,10 @@ const newUserInfo = async (body) => {
     return response;
 }
 
+
+const fetchUser = async (userId) => {
+    const data = await fetch(`/profile/${userId}`);
+    const response = data.json();
+    return response;
+}
 saveButton.addEventListener(click, formHandler);
