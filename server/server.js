@@ -1,6 +1,9 @@
-// require("dotenv").config();
+const http = require('http');
 const express = require("express");
+const hostname = "127.0.0.1";
+const port = 5000;
 const app = express();
+const server = http.createServer(app);
 const bcrypt = require('bcrypt');
 app.use(express.json())
 require("dotenv").config({ path: "../.env" });
@@ -38,6 +41,16 @@ app.get("/users/:userId", async (req, res) => {
     res.json(oneUser);
 });
 
+app.put("/users/:id", async (req, res) => {
+    const { id } = req.params;
+    const updatedUser = await Users.update(req.body, {
+        where: {
+            id,
+        }
+    });
+    res.json(updatedUser);
+});
+
 app.get("/aboutus", async (req, res) => {
     const aboutUs = await About_us.findAll();
     res.send({ aboutUs });
@@ -68,7 +81,17 @@ app.post("/mentors", async (req, res) => {
         photo_url
     });
     res.json(newMentor);
-})
+});
+
+app.put("/mentors/:id", async (req, res) => {
+    const { id } = req.params;
+    const updatedMentor = await Mentors.update( req.body, {
+        where: {
+            id,
+        }
+    });
+    res.json(updatedMentor);
+});
 
 app.get("/mentees", async (req, res) => {
     const menteesData = await Mentees.findAll();
@@ -97,7 +120,17 @@ app.post("/mentees", async (req, res) => {
         photo_url
     });
     res.json(newMentee);
-})
+});
+
+app.put("/mentees/:id", async (req, res) => {
+    const { id } = req.params;
+    const updatedMentee = await Mentees.update( req.body, {
+        where: {
+            id,
+        }
+    });
+    res.json(updatedMentee);
+});
 
 app.get("/request_form", async (req, res) => {
     const requestData = await Request_Tables.findAll();
@@ -170,6 +203,6 @@ app.get('/logout', (req, res) => {
     });
 });
 
-app.listen(3000, () => {
-    console.log("Server is running on port 3000");
-});
+server.listen(port, hostname, () => {
+    console.log(`Server running at http://${hostname}:${port}/`);
+  });
