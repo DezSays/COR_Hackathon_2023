@@ -16,7 +16,7 @@ app.get("/heartbeat", (req, res) => {
 app.use(express.json());
 const session = require('express-session');
 app.use(session({
-    secret: 'digitalcrafts', // Replace with a secret key for session encryption
+    secret: process.env.SESSION_SECRET, // Replace with a secret key for session encryption
     resave: false,
     saveUninitialized: true,
     cookie: {
@@ -31,6 +31,13 @@ app.get("/users", async (req, res) => {
     console.log("Users");
     res.send(usersData);
 });
+
+app.get("/users/:userId", async (req, res) => {
+    const { id } = req.params;
+    const oneUser = await Users.findOne({ where: id })
+    res.json(oneUser);
+});
+
 app.get("/aboutus", async (req, res) => {
     const aboutUs = await About_us.findAll();
     res.send({ aboutUs });
@@ -41,11 +48,23 @@ app.get("/mentors", async (req, res) => {
     res.send({ mentorsData });
 });
 
+app.get("/mentors/:mentorId", async (req, res) => {
+    const { id } = req.params;
+    const oneMentor = await Mentors.findOne({ where: id })
+    res.json(oneMentor)
+})
+
 app.get("/mentees", async (req, res) => {
     const menteesData = await Mentees.findAll();
     res.send({ menteesData });
   
 });
+
+app.get("/mentees/:menteeId", async (req, res) => {
+    const { id } = req.params;
+    const oneMentee = await Mentees.findOne({ where: id });
+    res.json(oneMentee);
+})
 
 app.get("/request_form", async (req, res) => {
     const requestData = await Request_Tables.findAll();
