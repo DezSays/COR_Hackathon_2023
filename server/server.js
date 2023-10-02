@@ -52,6 +52,22 @@ app.get("/mentors/:mentorId", async (req, res) => {
     const { id } = req.params;
     const oneMentor = await Mentors.findOne({ where: id })
     res.json(oneMentor)
+});
+
+app.post("/mentors", async (req, res) => {
+    const { user_id, name, profession, gender, managment, counselor, same_gender, linkedin_url, photo_url } = req.body;
+    const newMentor = await Mentors.create({
+        user_id,
+        name,
+        profession,
+        gender,
+        managment,
+        counselor,
+        same_gender,
+        linkedin_url,
+        photo_url
+    });
+    res.json(newMentor);
 })
 
 app.get("/mentees", async (req, res) => {
@@ -64,6 +80,23 @@ app.get("/mentees/:menteeId", async (req, res) => {
     const { id } = req.params;
     const oneMentee = await Mentees.findOne({ where: id });
     res.json(oneMentee);
+});
+
+app.post("/mentees", async (req, res) => {
+    const { user_id, name, student_type, preferred_profession, preferred_management, preferred_counselor, gender, same_gender, linkedin_url, photo_url } = req.body;
+    const newMentee = await Mentees.create({
+        user_id,
+        name,
+        student_type,
+        preferred_profession,
+        preferred_management,
+        preferred_counselor,
+        gender,
+        same_gender,
+        linkedin_url,
+        photo_url
+    });
+    res.json(newMentee);
 })
 
 app.get("/request_form", async (req, res) => {
@@ -83,6 +116,14 @@ app.get("/intakeform", async (req, res) => {
     res.send({ IntakeData });
   
 });
+
+const requireLogin = (req, res, next) => {
+    if (req.session.user) {
+        next(); // User is authenticated, proceed to the next middleware/route handler
+    } else {
+        res.status(401).json({ "message": "Unauthorized" });
+    }
+}
 
 app.post('/login', async (req, res) => {
     const { name, password } = req.body;
@@ -119,14 +160,6 @@ app.get('/profile/:userId', requireLogin, async (req, res) => {
     console.log(user);
     res.json(user);
 });
-
-function requireLogin(req, res, next) {
-    if (req.session.user) {
-        next(); // User is authenticated, proceed to the next middleware/route handler
-    } else {
-        res.status(401).json({ "message": "Unauthorized" });
-    }
-}
 
 app.get('/logout', (req, res) => {
     req.session.destroy((err) => {
