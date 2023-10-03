@@ -166,11 +166,12 @@ const setupMenteeRegistration = () => {
             preference.style.display="flex";
             create.style.display="none";
         })
+        subButton.addEventListener('click', )
     }
 }
 
 const menteeRegistration = (body) => {
-    if (location.href === 'menteeregistration') {
+    if (location.href === '/menteeregistration') {
     const studentType = document.getElementById('studentType')
     const internshipType = document.getElementById('intern-type')
     const leaderType = document.getElementById('leaderType')
