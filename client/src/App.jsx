@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import BaseLayout from './components/layout/BaseLayout'
 // import './App.css'
 import HomePage from './components/HomePage';
+import MenteeRegistration from './components/auth/MenteeRegistration';
 
 function App() {
 
