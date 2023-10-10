@@ -1,0 +1,65 @@
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+}
+h1.form-title {
+    text-align: center;
+}
+
+/* Form step styles */
+#about-you, #preferences, #createp {
+    display: none; /* Hide all form steps by default */
+  }
+  
+  /* Show the current form step */
+  #about-you.active, #preferences.active, #createp.active {
+    display: block;
+  }
+
+#mentee-form {
+  padding: 20px;
+}
+
+Form.Label {
+  font-weight: bold;
+  border: black solid;
+}
+
+Form.Control {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+Button {
+  margin-right: 10px;
+}
+
+.radio-types {
+padding: 5px;
+}
+
+Form {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 60vw;
+    background-color: lightgray;
+    padding: 15px;
+    border-radius: 5px;
+    margin: auto;
+    box-shadow: 0 0 1px black;
+    font-weight: 450;
+}
+
+.btn-back {
+    float: left;
+}
+
+.btn-next, .btn-submit {
+    float: right;
+}
+.btn-back, .btn-next, .btn-submit {
+    width: 100px;
+    margin-top: 10px;
+}
