@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Geologica:wght@100;200;500;700&family=Libre+Baskerville:wght@400;700&display=swap');
+
+body {
+    font-family: 'Geologica', sans-serif;
+    font-family: 'Libre Baskerville', serif;
+}
+
+#about-you, #preferences, #createp {
+    display: none;
+    padding-top: 80px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-data {
+    width: 50%;
+    height: 500px;
+    background-color: rgb(237, 236, 236);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 15px;
+    border: 1px solid black;
+    box-shadow: 1px 2px;
+}
+
+.option-box {
+    margin-bottom: 30px;
+}
+
+.txtoption {
+    width: 100%;
+}
+
+.nav-buttons {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+button {
+    border: none;
+    cursor: pointer;
+}
+
+.page-indicator {
+    color: gray;
+}
+
+.current-page {
+    font-size: larger;
+    color: black;
+}
+
+#profile-pic {
+    border-radius: 50%;
+}
+
+#picbox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#description {
+    width: 100%;
+}
+
+.linkedIn {
+    width: 100%;
+}
+
+#left1,
+#right3 {
+    color: rgb(147, 146, 146);
+}
+
+#photo-url {
+    margin-top: 20px;
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#submit-button {
+    display: flex;
+    justify-content: end;
+    margin-right: -12px;
+    font-family: 'Libre Baskerville', serif;
+    background-color: none;
+}
+
+.statement {
+    text-align: center;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
