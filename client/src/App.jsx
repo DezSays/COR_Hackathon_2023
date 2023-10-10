@@ -14,6 +14,7 @@ function App() {
             <Route path='/' element={<HomePage /> } />
             <Route path='*' element={<HomePage /> } />
           </Routes>
+          
         </BaseLayout>
       </Router>
     </>
