@@ -1,0 +1,33 @@
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+  
+  .form {
+    width: 80%;
+    max-width: 600px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    text-align: left; 
+  }
+  
+  
+  .form-check-input {
+    display: inline-block;
+    margin-right: 10px;
+  }
+  
+  .form-check-label {
+    display: inline-block;
+    margin-right: 20px;
+    white-space: nowrap;
+    text-align: left; 
+  }
+
+  
+  
