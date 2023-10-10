@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import BaseLayout from './components/layout/BaseLayout'
-import './App.css'
+// import './App.css'
 import HomePage from './components/HomePage';
 
 function App() {
