@@ -1,0 +1,28 @@
+.text-center {
+    text-align: center; 
+    margin-bottom: 15px; 
+  }
+  
+  .staff-name {
+    margin: 0%;
+    font-weight: bold; 
+  }
+  
+  .staff-title {
+    margin-bottom: 10px; 
+  }
+
+
+  .staff-name {
+    margin-top: 10px;
+    font-weight: bold;
+    display: inline-block;
+    border-bottom: 1px solid #ccc;
+    width: 60%; /
+  }
+
+#mission-statement{
+    margin-bottom: 20px;
+}
+ 
+  
