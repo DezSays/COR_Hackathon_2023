@@ -1,0 +1,32 @@
+/* Add this CSS to your footer.css file */
+
+.footer-basic {
+    background-color: rgb(0, 0, 99);
+    color: white;
+    text-align: center; /* Center the text within the footer */
+}
+
+.images {
+    display: flex;
+    justify-content: center; /* Center the images horizontally */
+    align-items: center; /* Center the images vertically */
+    padding: 5px;
+    margin-top: 30px;
+}
+
+/* Remove the height and width properties from .images */
+/* .images{
+    height: 5px;
+    width: 5px;
+} */
+
+.image0,
+.image1,
+.image2,
+.image3 {
+    margin: 10px;
+}
+
+.footerline {
+    margin-bottom: 1px;
+}
