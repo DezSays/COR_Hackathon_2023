@@ -6,6 +6,7 @@ import BaseLayout from './components/layout/BaseLayout'
 import HomePage from './components/HomePage';
 import MenteeRegistration from './components/auth/MenteeRegistration';
 import MenteesList from './components/MentorsList';
+import MenteesList from './components/MenteesList';
 
 
 function App() {
@@ -20,7 +21,8 @@ function App() {
           </Routes>
         </BaseLayout>
       </Router>
-      <MenteesList/>
+      <MenteesList />
+      
     </>
   )
 }
