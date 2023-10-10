@@ -4,27 +4,51 @@ import { Carousel, Container, Row, Col, Button } from 'react-bootstrap';
 const HomePage = () => {
   return (
     <div>
-
-      {/* Carousel */}
       <Carousel>
         <Carousel.Item>
           <img
             className="d-block w-100"
-            src="image1.jpg"  // Replace with your image source
+            src="cor-class-1.jpg"
             alt="First slide"
           />
         </Carousel.Item>
         <Carousel.Item>
           <img
             className="d-block w-100"
-            src="image2.jpg"  // Replace with your image source
+            src="cor-class-2.jpg"
             alt="Second slide"
           />
         </Carousel.Item>
-        {/* Add more Carousel.Items with different images as needed */}
+        <Carousel.Item>
+          <img
+            className="d-block w-100"
+            src="cor-class-3.jpg"
+            alt="Third slide"
+          />
+        </Carousel.Item>
+        <Carousel.Item>
+          <img
+            className="d-block w-100"
+            src="cor-class-4.jpg"
+            alt="Fourth slide"
+          />
+        </Carousel.Item>
+        <Carousel.Item>
+          <img
+            className="d-block w-100"
+            src="cor-class-5.jpg"
+            alt="Fifth slide"
+          />
+        </Carousel.Item>
+        <Carousel.Item>
+          <img
+            className="d-block w-100"
+            src="cor-class-6.jpg"
+            alt="Sixth slide"
+          />
+        </Carousel.Item>
       </Carousel>
 
-      {/* Introductory Text */}
       <Container style={{ marginTop: '20px', marginBottom: '20px' }}>
         <Row>
           <Col className="text-center">
@@ -36,7 +60,6 @@ const HomePage = () => {
         </Row>
       </Container>
 
-      {/* Call-to-Action Button */}
       <Container>
         <Row className="justify-content-center">
           <Col xs="auto">
