@@ -22,6 +22,7 @@ const LoginPage = () => {
     console.log('Login data:', formData);
   };
 
+  
   return (
     <div>
       <div style={{ display: 'flex', justifyContent: 'center' }}>
