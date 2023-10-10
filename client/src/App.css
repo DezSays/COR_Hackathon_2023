@@ -1,0 +1,12 @@
+.login-page{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.formLogin{
+  border: 5px solid black;
+  
+}
+.login-space{
+  margin: 50px;
+}
