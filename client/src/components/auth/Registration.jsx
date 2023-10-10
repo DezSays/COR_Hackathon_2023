@@ -10,6 +10,7 @@ const Registration = () => {
     password2: '',
   });
 
+  
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({
