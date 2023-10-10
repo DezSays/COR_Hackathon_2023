@@ -4,12 +4,13 @@ import { Carousel, Container, Row, Col, Button } from 'react-bootstrap';
 const HomePage = () => {
   return (
     <div>
-      <Carousel>
+      <Carousel style={{ height: '500px', overflow: 'hidden' }}>
         <Carousel.Item>
           <img
             className="d-block w-100"
             src="cor-class-1.jpg"
             alt="First slide"
+            style={{ objectFit: 'cover', height: '100%', width: '100%' }}
           />
         </Carousel.Item>
         <Carousel.Item>
@@ -17,6 +18,7 @@ const HomePage = () => {
             className="d-block w-100"
             src="cor-class-2.jpg"
             alt="Second slide"
+            style={{ objectFit: 'cover', height: '100%', width: '100%' }}
           />
         </Carousel.Item>
         <Carousel.Item>
@@ -24,6 +26,7 @@ const HomePage = () => {
             className="d-block w-100"
             src="cor-class-3.jpg"
             alt="Third slide"
+            style={{ objectFit: 'cover', height: '100%', width: '100%' }}
           />
         </Carousel.Item>
         <Carousel.Item>
@@ -31,6 +34,7 @@ const HomePage = () => {
             className="d-block w-100"
             src="cor-class-4.jpg"
             alt="Fourth slide"
+            style={{ objectFit: 'cover', height: '100%', width: '100%' }}
           />
         </Carousel.Item>
         <Carousel.Item>
@@ -38,6 +42,7 @@ const HomePage = () => {
             className="d-block w-100"
             src="cor-class-5.jpg"
             alt="Fifth slide"
+            style={{ objectFit: 'cover', height: '100%', width: '100%' }}
           />
         </Carousel.Item>
         <Carousel.Item>
@@ -45,6 +50,7 @@ const HomePage = () => {
             className="d-block w-100"
             src="cor-class-6.jpg"
             alt="Sixth slide"
+            style={{ objectFit: 'cover', height: '100%', width: '100%' }}
           />
         </Carousel.Item>
       </Carousel>
