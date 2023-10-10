@@ -1,13 +1,24 @@
-
-import './App.css'
-import MentorRegistration from './components/auth/MentorRegistration'
+import { useState } from 'react'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import BaseLayout from './components/layout/BaseLayout'
+// import './App.css'
+import HomePage from './components/HomePage';
 
 function App() {
 
   return (
-    <div>
-      <MentorRegistration/>
-    </div>
+    <>
+      <Router>
+        <BaseLayout>
+          <Routes>
+            <Route path='/' element={<HomePage /> } />
+            <Route path='*' element={<HomePage /> } />
+          </Routes>
+           
+          
+        </BaseLayout>
+      </Router>
+    </>
   )
 }
 
