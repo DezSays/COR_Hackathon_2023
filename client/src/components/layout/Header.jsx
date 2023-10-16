@@ -1,8 +1,14 @@
 import React from 'react'
+import '../../styles/Header.css'
+import CORLOGO from '../../assets/Asset+1.png'
 
 const Header = () => {
   return (
-    <div>Header</div>
+    <>
+      <navbar className="Navbar">
+          <img src={CORLOGO} id="Nav-Brand" alt="" />
+      </navbar>
+    </>
   )
 }
 
