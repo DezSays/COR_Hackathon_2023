@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import '../styles/MentList.css'
+import { Container, Card, ListGroup } from 'react-bootstrap'; // Import necessary Bootstrap components
+import '../styles/MentList.css';
+
 const MentorsList = () => {
   const [mentors, setMentors] = useState([]);
 
@@ -18,16 +20,29 @@ const MentorsList = () => {
   }, []);
 
   return (
-    <div id='hello'>
+    <Container id='hello'>
       <h2>Mentors Registered:</h2>
-      <ul>
-        {mentors.map((mentor) => (
-          <li key={mentor.id}>
-            Name: {mentor.name}, Profession: {mentor.profession}, Gender: {mentor.gender}, Management: {mentor.management}, Counselor: {mentor.counselor}, LinkedIn: {mentor.linkedin_url}, Photo: {mentor.photo_url}
-          </li>
-        ))}
-      </ul>
-    </div>
+      {mentors.map((mentor) => (
+        <Card key={mentor.id} style={{ marginBottom: '20px' }}>
+          <Card.Header>Name: {mentor.name}</Card.Header>
+          <Card.Body>
+          <ListGroup.Item>Photo: {mentor.photo_url}</ListGroup.Item>
+            <Card.Title>Profession: {mentor.profession}</Card.Title>
+            <ListGroup variant='flush'>
+              <ListGroup.Item>Gender: {mentor.gender}</ListGroup.Item>
+              <ListGroup.Item>Management: {mentor.management}</ListGroup.Item>
+              <ListGroup.Item>Counselor: {mentor.counselor}</ListGroup.Item>
+              <ListGroup.Item>
+                LinkedIn: <a href={mentor.linkedin_url} target='_blank' rel='noopener noreferrer'>
+                  {mentor.linkedin_url}
+                </a>
+              </ListGroup.Item>
+              
+            </ListGroup>
+          </Card.Body>
+        </Card>
+      ))}
+    </Container>
   );
 };
 
