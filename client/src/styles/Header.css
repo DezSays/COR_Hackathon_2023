@@ -10,3 +10,11 @@
   max-height: 8vh;
   max-width: 50vw;
 }
+
+.nav-link-color {
+  color: white !important;
+  font-size: 18px;
+  text-decoration: none;
+  margin-right: 15px;
+  font-weight: bold;
+}

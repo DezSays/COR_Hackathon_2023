@@ -21,12 +21,12 @@ const Header = () => {
                 style={{ maxHeight: '100px' }}
                 navbarScroll
               >
-                <Link className='nav-link-color' to='/'>Home</Link>
-                <Link className='nav-link-color' to="/about-us">About Us</Link>
-                <Link className='nav-link-color' to="/login">Login</Link>
-                <Link className='nav-link-color' to="/mentee-registration">Mentee Registration</Link>
-                <Link className='nav-link-color' to="/mentor-registration">Mentor Registration</Link>
-                <Link className='nav-link-color' to="/registration">Registration</Link>
+                <Link className='nav-link-style' to='/'>Home</Link>
+                <Link className='nav-link-style' to="/about-us">About Us</Link>
+                <Link className='nav-link-style' to="/login">Login</Link>
+                <Link className='nav-link-style' to="/mentee-registration">Mentee Registration</Link>
+                <Link className='nav-link-style' to="/mentor-registration">Mentor Registration</Link>
+                <Link className='nav-link-style' to="/registration">Registration</Link>
               </Nav>
             </Navbar.Collapse>
           </Container>
