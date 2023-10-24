@@ -1,8 +1,9 @@
-body {
+/* body {
   font-family: Arial, sans-serif;
   display: flex;
   justify-content: center;
-}
+} */
+
 h1.form-title {
     text-align: center;
 }
