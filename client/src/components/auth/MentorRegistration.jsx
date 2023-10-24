@@ -15,22 +15,41 @@ const MentorRegistration = () => {
   const [photo, setPhoto] = useState(null); 
   const [linkedin, setLinkedin] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const formData = {
-      name,
-      email,
-      profession,
-      mentorType,
-      genderPreference,
-      managementOrLeadership,
-      counselorOrLifeCoach,
-      sameGenderPreference,
-      blurb,
-      photo,
-      linkedin,
-    };
+    const formData = new FormData();
+    formData.append('name', name);
+    formData.append('email', email);
+    formData.append('profession', profession);
+    formData.append('mentorType', mentorType);
+    formData.append('genderPreference', genderPreference);
+    formData.append('managementOrLeadership', managementOrLeadership);
+    formData.append('counselorOrLifeCoach', counselorOrLifeCoach);
+    formData.append('sameGenderPreference', sameGenderPreference);
+    formData.append('blurb', blurb);
+    formData.append('linkedin', linkedin);
+
+    if (photo) {
+      formData.append('photo', photo);
+    }
+
+    try {
+      const response = await fetch('https://cor-hackathon-2023.vercel.app/mentors', {
+        method: 'POST',
+        body: formData,
+      });
+
+      if (response.ok) {
+        // Handle success, e.g., show a success message or redirect the user
+        console.log('Form submitted successfully');
+      } else {
+        // Handle errors, e.g., show an error message
+        console.error('Form submission failed');
+      }
+    } catch (error) {
+      console.error('An error occurred while submitting the form:', error);
+    }
 
     setName('');
     setEmail('');
@@ -43,6 +62,7 @@ const MentorRegistration = () => {
     setBlurb('');
     setPhoto(null);
     setLinkedin('');
+
   };
 
   return (
@@ -50,7 +70,7 @@ const MentorRegistration = () => {
         <h1>City of Refugee Mentor Registration Page</h1>
     <div className='form-container'>
 
-      <Form className='form' onSubmit={handleSubmit}>
+      <Form method='post' className='form' onSubmit={handleSubmit}>
         <Form.Group controlId="name">
           <Form.Label>Name:</Form.Label>
           <Form.Control
@@ -206,7 +226,7 @@ const MentorRegistration = () => {
         </Form.Group>
 
         {/* Submit Button */}
-        <button type="submit">Submit</button>
+        <button  type="submit">Submit</button>
       </Form>
     </div>
     </div>
