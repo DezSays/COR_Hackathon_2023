@@ -1,5 +1,6 @@
 import React from 'react';
 import { Carousel, Container, Row, Col, Button } from 'react-bootstrap';
+import '../styles/HomePage.css'
 
 const HomePage = () => {
   return (
@@ -7,50 +8,50 @@ const HomePage = () => {
       <Carousel>
         <Carousel.Item>
           <img
-            className="d-block"
+            className="d-block mx-auto"
             src="cor-class-1(1).jpg"
             alt="First slide"
-            // style={{ objectFit: 'cover', height: '100%', width: '100%' }}
+            style={{ maxHeight: '700px', maxWidth: '1150px', width: 'auto', height: 'auto', objectFit: 'cover' }}
           />
         </Carousel.Item>
         <Carousel.Item>
           <img
-            className="d-block"
+            className="d-block mx-auto"
             src="cor-class-2(1).jpg"
             alt="Second slide"
-            // style={{ objectFit: 'cover', height: '100%', width: '100%' }}
+            style={{ maxHeight: '700px', maxWidth: '1150px', width: 'auto', height: 'auto', objectFit: 'cover' }}
           />
         </Carousel.Item>
         <Carousel.Item>
           <img
-            className="d-block"
+            className="d-block mx-auto"
             src="cor-class-3(1).jpg"
             alt="Third slide"
-            // style={{ objectFit: 'cover', height: '100%', width: '100%' }}
+            style={{ maxHeight: '700px', maxWidth: '1150px', width: 'auto', height: 'auto', objectFit: 'cover' }}
           />
         </Carousel.Item>
         <Carousel.Item>
           <img
-            className="d-block"
+            className="d-block mx-auto"
             src="cor-class-4(1).jpg"
             alt="Fourth slide"
-            // style={{ objectFit: 'cover', height: '100%', width: '100%' }}
+            style={{ maxHeight: '700px', maxWidth: '1150px', width: 'auto', height: 'auto', objectFit: 'cover' }}
           />
         </Carousel.Item>
         <Carousel.Item>
           <img
-            className="d-block"
+            className="d-block mx-auto"
             src="cor-class-5(1).jpg"
             alt="Fifth slide"
-            // style={{ objectFit: 'cover', height: '100%', width: '100%' }}
+            style={{ maxHeight: '700px', maxWidth: '1150px', width: 'auto', height: 'auto', objectFit: 'cover' }}
           />
         </Carousel.Item>
         <Carousel.Item>
           <img
-            className="d-block"
+            className="d-block mx-auto"
             src="cor-class-6(1).jpg"
             alt="Sixth slide"
-            // style={{ objectFit: 'cover', height: '100%', width: '100%' }}
+            style={{ maxHeight: '700px', maxWidth: '1150px', width: 'auto', height: 'auto', objectFit: 'cover' }}
           />
         </Carousel.Item>
       </Carousel>
