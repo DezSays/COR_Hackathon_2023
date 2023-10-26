@@ -486,7 +486,7 @@ app.use(
     },
   })
   );
-  app.use(express.static(__dirname + '/public'));
+  app.use(express.static(path.join(__dirname, "static")));
   app.use(
     cors({
       origin: "*",
@@ -722,7 +722,7 @@ const options = {
 
 const specs = swaggerJsdoc(options);
 app.use(
-  "/api",
+  "/",
   swaggerUi.serve,
   swaggerUi.setup(specs, { customCssUrl: CSS_URL, explorer: true })
 );
