@@ -725,6 +725,7 @@ app.use('*.css', (req, res, next) => {
     next();
 });
 
+
 const specs = swaggerJsdoc(options);
 app.use(
   "/",
