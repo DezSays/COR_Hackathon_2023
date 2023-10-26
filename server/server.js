@@ -691,7 +691,7 @@ app.get("/logout", (req, res) => {
     if (err) {
       console.error("Error destroying session:", err);
     }
-    res.redirect("/"); // Redirect to the login or home page
+    res.redirect("/"); 
   });
   res.send("logged out");
 });
@@ -711,7 +711,7 @@ const options = {
     },
     servers: [
       {
-        url: "https://cor-hackathon-2023.vercel.app/",
+        url: `http://${hostname}:${port}/`,
       },
     ],
   },
