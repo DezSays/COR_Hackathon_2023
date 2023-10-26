@@ -455,7 +455,6 @@ const morgan = require("morgan");
 const session = require("express-session");
 const swaggerJsdoc = require("swagger-jsdoc");
 const swaggerUi = require("swagger-ui-express");
-const CSS_URL = "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.1.0/swagger-ui.min.css";
 require("dotenv").config({ path: "../.env" });
 const {
   About_us,
@@ -486,7 +485,6 @@ app.use(
     },
   })
   );
-  app.use(express.static(path.join(__dirname, "static")));
   app.use(
     cors({
       origin: "*",
@@ -722,9 +720,9 @@ const options = {
 
 const specs = swaggerJsdoc(options);
 app.use(
-  "/api",
+  "/",
   swaggerUi.serve,
-  swaggerUi.setup(specs, { customCssUrl: CSS_URL, explorer: true })
+  swaggerUi.setup(specs, {explorer: true })
 );
 
 app.listen(port, hostname, () => {
