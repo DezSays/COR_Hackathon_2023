@@ -722,7 +722,7 @@ const options = {
 
 const specs = swaggerJsdoc(options);
 app.use(
-  "/",
+  "/api",
   swaggerUi.serve,
   swaggerUi.setup(specs, { customCssUrl: CSS_URL, explorer: true })
 );
