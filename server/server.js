@@ -45,9 +45,12 @@ app.use(
   
   app.use(
     cors({
-      origin: "*",
+      origin: [
+        "https://cor-hackathon-2023.vercel.app/",
+        "https://cor-hackathon-2023-unmx.vercel.app/"
+      ]
     })
-    );
+  );
 
     const requireLogin = (req, res, next) => {
       if (req.session.user) {
