@@ -267,7 +267,7 @@ const options = {
     "description": "This server is an API service that facilitates the management of users, including operations such as user registration, login, profile retrieval, and logout. Additionally, it supports the handling of various data entities such as About Us information, Mentors, Mentees, QR codes, and request forms. The API provides endpoints for retrieving, creating, and updating these different data entities. The server is documented using Swagger, which allows for clear and standardized documentation of the available API endpoints and data schemas.",
     "termsOfService": "http://swagger.io/terms/",
     "contact": {
-      "email": "apiteam@swagger.io"
+      "email": "dezareabryan@gmail.com"
     },
     "license": {
       "name": "Apache 2.0",
