@@ -2,12 +2,12 @@
 
 This readme outlines the endpoints available on the server.
 
-## Heartbeat
+## Swagger Documentation
 
 ### `GET /`
 
-- Description: Check server heartbeat.
-- Response: Returns a string 'heartbeat' to indicate that the server is running.
+- Description: Unveils the comprehensive Swagger documentation for the City of Refuge Mentor/Mentee API.
+- Response: Displays data for all routes using Swagger.
 
 ## Users
 
