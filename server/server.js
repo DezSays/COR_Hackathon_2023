@@ -1082,6 +1082,13 @@ const options = {
   apis: ["./server.js"],
 };
 
+app.use(express.static(__dirname));
+app.use('*.css', (req, res, next) => {
+    res.set('Content-Type', 'text/css');
+    next();
+});
+
+
 const specs = swaggerJsdoc(options);
 app.use(
   "/",
