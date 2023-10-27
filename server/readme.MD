@@ -1,6 +1,6 @@
 # Server Endpoints
 
-This readme outlines the endpoints available on the server.
+This readme outlines the endpoints available on the [server](https://cor-hackathon-2023.vercel.app/).
 
 ## Swagger Documentation
 
